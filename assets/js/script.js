@@ -1,13 +1,46 @@
 // Custom JavaScript for Durris Computer Institute Website
 
+// Utility function to safely close navbar
+function safeCloseNavbar() {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        // Try Bootstrap method first
+        if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+            try {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            } catch (error) {
+                // Fallback: manually remove the class
+                navbarCollapse.classList.remove('show');
+                navbarCollapse.setAttribute('aria-expanded', 'false');
+            }
+        } else {
+            // Fallback: manually remove the class
+            navbarCollapse.classList.remove('show');
+            navbarCollapse.setAttribute('aria-expanded', 'false');
+        }
+    }
+}
+
+// Wait for both DOM and Bootstrap to be ready
+function waitForBootstrap(callback) {
+    if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+        callback();
+    } else {
+        setTimeout(() => waitForBootstrap(callback), 50);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate On Scroll)
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 100
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
 
     // Navbar scroll effect
     const navbar = document.getElementById('mainNavbar');
@@ -20,31 +53,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+    // Smooth scrolling for navigation links - Wait for Bootstrap
+    waitForBootstrap(() => {
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Close mobile menu if open
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                bsCollapse.hide();
-            }
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                safeCloseNavbar();
+            });
         });
     });
 
@@ -94,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Active navigation link highlighting
     const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     
     window.addEventListener('scroll', function() {
         let current = '';
@@ -235,21 +267,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile menu improvements
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    
-    if (navbarToggler && navbarCollapse) {
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
-                if (navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                    bsCollapse.hide();
+    // Mobile menu improvements - Wait for Bootstrap
+    waitForBootstrap(() => {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        if (navbarToggler && navbarCollapse) {
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+                    if (navbarCollapse.classList.contains('show')) {
+                        safeCloseNavbar();
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
+    });
 
     // Performance optimization: Lazy load images
     const images = document.querySelectorAll('img[data-src]');
@@ -298,3 +331,23 @@ function revealOnScroll() {
 // Debounced scroll event for performance
 window.addEventListener('scroll', debounce(revealOnScroll, 10));
 
+// Ensure hamburger menu is ready immediately
+document.addEventListener('DOMContentLoaded', function() {
+    // Force navbar toggler to be visible immediately
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarToggler) {
+        navbarToggler.style.display = 'block';
+        navbarToggler.style.visibility = 'visible';
+        navbarToggler.style.opacity = '1';
+    }
+});
+
+// Additional fallback for immediate navbar visibility
+window.addEventListener('load', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarToggler) {
+        navbarToggler.style.display = 'block';
+        navbarToggler.style.visibility = 'visible';
+        navbarToggler.style.opacity = '1';
+    }
+});
