@@ -299,40 +299,25 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-form" data-aos="fade-left">
-                        <!-- Google Form Embed Placeholder -->
+                        <!-- Form Header -->
+                        <div class="form-header">
+                            <h3></h3>
+                            <p>We'd love to hear from you. Fill out the form below.</p>
+                        </div>
+                        
+                        <!-- Google Form Embed -->
                         <div class="form-placeholder">
-                            <h4>Contact Form</h4>
-                            <p>Google Form will be embedded here. Please provide the Google Form URL to complete the integration.</p>
                             <div class="temp-form">
                                 <form>
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phone" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="course" class="form-label">Course of Interest</label>
-                                        <select class="form-select" id="course" required>
-                                            <option value="">Select a course</option>
-                                            <option value="computer-package">Computer Package</option>
-                                            <option value="corel-draw">Corel Draw</option>
-                                            <option value="adobe-indesign">Adobe InDesign</option>
-                                            <option value="adobe-illustrator">Adobe Illustrator</option>
-                                            <option value="adobe-photoshop">Adobe Photoshop</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">Message</label>
-                                        <textarea class="form-control" id="message" rows="4"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                    <!-- Google Form Iframe -->
+                                    <iframe 
+                                        class="form-iframe"
+                                        src="https://docs.google.com/forms/d/e/1FAIpQLScxILl9JZVPuek55fGxlTnQpYNjgY6hBgopKei47-prsXiFLg/viewform?embedded=true" 
+                                        frameborder="0" 
+                                        marginheight="0" 
+                                        marginwidth="0">
+                                        Loading…
+                                    </iframe>
                                 </form>
                             </div>
                         </div>

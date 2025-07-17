@@ -377,6 +377,184 @@ html, body {
     text-decoration: underline;
 }
 
+
+
+.col-lg-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 15px;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 33, 71, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 33, 71, 0.15);
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            z-index: 1;
+        }
+
+        .form-placeholder {
+            position: relative;
+            padding: 0;
+        }
+
+        .form-header {
+            padding: 30px 30px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .temp-form {
+            padding: 0;
+            position: relative;
+        }
+
+        .temp-form form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Iframe Styling */
+        .form-iframe {
+            width: 100%;
+            height: 1400px;
+            border: none;
+            display: block;
+            background: var(--white);
+            transition: opacity 0.3s ease;
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .col-lg-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                border-radius: 15px;
+                margin: 0 10px;
+            }
+
+            .form-header {
+                padding: 25px 20px 15px;
+            }
+
+            .form-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .form-header p {
+                font-size: 0.9rem;
+            }
+
+            .form-iframe {
+                height: 1200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .contact-form {
+                border-radius: 12px;
+                margin: 0 5px;
+            }
+
+            .form-header {
+                padding: 20px 15px 12px;
+            }
+
+            .form-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .form-header p {
+                font-size: 0.85rem;
+            }
+
+            .form-iframe {
+                height: 1000px;
+            }
+        }
+
+        /* Custom Scrollbar for iframe area */
+        .temp-form::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .temp-form::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        .temp-form::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .temp-form::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
 /* WhatsApp Floating Icon */
 .whatsapp-float {
     position: fixed;

@@ -295,6 +295,33 @@ function revealOnScroll() {
     });
 }
 
+
+
+// Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Responsive iframe height adjustment
+        function adjustIframeHeight() {
+            const iframe = document.querySelector('.form-iframe');
+            const width = window.innerWidth;
+            
+            if (width <= 480) {
+                iframe.style.height = '1000px';
+            } else if (width <= 768) {
+                iframe.style.height = '1200px';
+            } else {
+                iframe.style.height = '1400px';
+            }
+        }
+
+        // Adjust on resize
+        window.addEventListener('resize', adjustIframeHeight);
+        adjustIframeHeight();
+
 // Debounced scroll event for performance
 window.addEventListener('scroll', debounce(revealOnScroll, 10));
 
