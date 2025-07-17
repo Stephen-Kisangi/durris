@@ -486,7 +486,7 @@ html {
     }
     
     .navbar-brand .brand-text {
-        display: var(--secondary-color);
+        display:grid;
     }
 }
 
