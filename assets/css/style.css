@@ -172,6 +172,10 @@ html, body {
     z-index: 2;
 }
 
+.btn-outline-primary {
+    color: var(--secondary-color);
+}
+
 /* Section Titles */
 .section-title {
     font-size: 2.5rem;
