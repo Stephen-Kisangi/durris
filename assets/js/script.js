@@ -322,6 +322,54 @@ function revealOnScroll() {
         window.addEventListener('resize', adjustIframeHeight);
         adjustIframeHeight();
 
+
+         function showCarousel() {
+            document.getElementById('testimonialCarousel').style.display = 'block';
+            document.getElementById('testimonialGrid').style.display = 'none';
+            
+            // Update button states
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function showGrid() {
+            document.getElementById('testimonialCarousel').style.display = 'none';
+            document.getElementById('testimonialGrid').style.display = 'block';
+            
+            // Update button states
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Trigger fade-in animation
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                });
+            }, 100);
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe testimonial cards
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.testimonial-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
 // Debounced scroll event for performance
 window.addEventListener('scroll', debounce(revealOnScroll, 10));
 

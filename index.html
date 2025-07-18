@@ -342,12 +342,217 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer-section">
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
         <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2025 Durris Computer Institute. All Rights Reserved. | Designed with ❤️ to empower your digital journey.</p>
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Don't just take our word for it - hear from our successful graduates who have transformed their digital skills and career prospects.</p>
+            </div>
+
+            <!-- View Toggle Buttons -->
+            <div class="view-toggle">
+                <button class="btn toggle-btn active" onclick="showCarousel()">Carousel View</button>
+                <button class="btn toggle-btn" onclick="showGrid()">Grid View</button>
+            </div>
+
+            <!-- Carousel View -->
+            <div id="testimonialCarousel" class="testimonial-carousel">
+                <div id="studentTestimonials" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#studentTestimonials" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#studentTestimonials" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#studentTestimonials" data-bs-slide-to="2"></button>
+                    </div>
+                    
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="testimonial-card text-center">
+                                        <div class="placeholder-avatar mx-auto">JW</div>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Durris Computer Institute helped me gain confidence in using Microsoft Office for my job. The trainers were patient and supportive throughout."</p>
+                                        <div class="student-name">Jane W.</div>
+                                        <div class="student-course">Microsoft Office Course</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="testimonial-card text-center">
+                                        <div class="placeholder-avatar mx-auto">SM</div>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"As a high school leaver, I didn't know where to start. Now I can confidently use Excel, Word, and PowerPoint. I highly recommend them."</p>
+                                        <div class="student-name">Samuel M.</div>
+                                        <div class="student-course">Computer Basics & MS Office</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="testimonial-card text-center">
+                                        <div class="placeholder-avatar mx-auto">FK</div>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Their graphics design course improved my creativity and skills. The practical approach makes learning enjoyable."</p>
+                                        <div class="student-name">Faith K.</div>
+                                        <div class="student-course">Graphics Design Course</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#studentTestimonials" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#studentTestimonials" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div id="testimonialGrid" class="testimonial-grid" style="display: none;">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card text-center fade-in">
+                            <div class="placeholder-avatar mx-auto">JW</div>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Durris Computer Institute helped me gain confidence in using Microsoft Office for my job. The trainers were patient and supportive throughout."</p>
+                            <div class="student-name">Jane W.</div>
+                            <div class="student-course">Microsoft Office Course</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card text-center fade-in">
+                            <div class="placeholder-avatar mx-auto">SM</div>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"As a high school leaver, I didn't know where to start. Now I can confidently use Excel, Word, and PowerPoint. I highly recommend them."</p>
+                            <div class="student-name">Samuel M.</div>
+                            <div class="student-course">Computer Basics & MS Office</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card text-center fade-in">
+                            <div class="placeholder-avatar mx-auto">FK</div>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Their graphics design course improved my creativity and skills. The practical approach makes learning enjoyable."</p>
+                            <div class="student-name">Faith K.</div>
+                            <div class="student-course">Graphics Design Course</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+     <footer class="footer-section">
+        <div class="container">
+            <div class="footer-main">
+                <div class="row">
+                    <!-- Column 1 - About -->
+                    <div class="col-md-4 mb-4">
+                        <h5>About Us</h5>
+                        <p>Durris Computer Institute equips you with practical digital skills to thrive in today's world. Join us and start your journey to digital success.</p>
+                        
+                        <!-- Social Media Icons -->
+                        <div class="social-icons">
+                            <a href="#" class="facebook" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="whatsapp" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="instagram" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 - Quick Links -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Quick Links</h5>
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#home">Home</a>
+                            <a class="nav-link" href="#about">About</a>
+                            <a class="nav-link" href="#courses">Courses</a>
+                            <a class="nav-link" href="#graphics">Graphics</a>
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Column 3 - Contact Information -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Contact Us</h5>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Yaanzoni Hardware Building (next to Destiny Supermarket), Devki Stage, Athi River, Room numbers 4 & 5</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>0705 444 485</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@durriscomputer.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2025 Durris Computer Institute. All Rights Reserved. Designed with ❤️ to empower your digital journey.</p>
                 </div>
             </div>
         </div>
