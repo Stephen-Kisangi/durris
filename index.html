@@ -75,8 +75,19 @@
     </section>
 
     <!-- About Section -->
+   <!-- About Section -->
     <section id="about" class="about-section py-5">
         <div class="container">
+            <!-- Director image - centered on mobile, hidden on desktop (will be positioned absolutely) -->
+            <div class="row d-lg-none">
+                <div class="col-12 text-center">
+                    <div class="director-container">
+                        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t1.6435-9/146573444_3596465367143231_4849333321732739698_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFKgz8mirsqBta5YuMo7RK1t0m4YMn4GEW3SbhgyfgYRfc9HVJzJ4Tj7mkOABHtVDlrMdNYwLiweKI2O5w5kRmA&_nc_ohc=z-F72t9jN_0Q7kNvwGK7EXe&_nc_oc=AdkbdXyr8u_xR_Pi-Ob0ZpeVnKuqI-wp0_76lshpAAP35RIkmWRTMSn6qAdP9l11quM&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=Us9NKmijTlLmZvptPTMYBw&oh=00_AfQF00GAueo7Ki2k-MaxgPJjayghPvD39vIpKElHq6Y4WA&oe=68A1044F" alt="Director" class="director-image">
+                        <div class="creative-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <h2 class="section-title">About Durris Computer Institute</h2>
@@ -84,6 +95,11 @@
                         Durris Computer Institute is committed to equipping you with practical digital skills for today's world. Our experienced trainers ensure you understand and confidently use computer applications in your studies, work, or business.
                     </p>
                     <div class="about-features">
+                        <!-- Director image - positioned absolutely on desktop (NO ARROW) -->
+                        <div class="director-container d-none d-lg-flex">
+                            <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t1.6435-9/146573444_3596465367143231_4849333321732739698_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFKgz8mirsqBta5YuMo7RK1t0m4YMn4GEW3SbhgyfgYRfc9HVJzJ4Tj7mkOABHtVDlrMdNYwLiweKI2O5w5kRmA&_nc_ohc=z-F72t9jN_0Q7kNvwGK7EXe&_nc_oc=AdkbdXyr8u_xR_Pi-Ob0ZpeVnKuqI-wp0_76lshpAAP35RIkmWRTMSn6qAdP9l11quM&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=Us9NKmijTlLmZvptPTMYBw&oh=00_AfQF00GAueo7Ki2k-MaxgPJjayghPvD39vIpKElHq6Y4WA&oe=68A1044F" alt="Director" class="director-image">
+                        </div>
+                        
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
                             <span>Experienced Trainers</span>
@@ -106,7 +122,6 @@
             </div>
         </div>
     </section>
-
     <!-- Courses Section -->
     <section id="courses" class="courses-section py-5">
         <div class="container">
