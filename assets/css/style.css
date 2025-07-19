@@ -138,6 +138,13 @@ html, body {
     color: var(--white);
     position: relative;
     overflow: hidden;
+    /* Add background image */
+    background-image: 
+        linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 51, 102, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .hero-section::before {
@@ -149,6 +156,9 @@ html, body {
     bottom: 0;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23F37021" fill-opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
     background-size: cover;
+    /* Add additional overlay for better text contrast */
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
 }
 
 .hero-title {
@@ -157,6 +167,8 @@ html, body {
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 2;
+    /* Add text shadow for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
@@ -165,6 +177,8 @@ html, body {
     line-height: 1.8;
     position: relative;
     z-index: 2;
+    /* Add text shadow for better readability */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -174,6 +188,15 @@ html, body {
 
 .btn-outline-primary {
     color: var(--secondary-color);
+    /* Ensure button visibility with background */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
 }
 
 /* Section Titles */
@@ -200,6 +223,21 @@ html, body {
     font-size: 1.1rem;
     color: var(--text-light);
     margin-bottom: 2rem;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
 }
 
 /* About Section */
