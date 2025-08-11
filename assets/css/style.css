@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
@@ -491,6 +491,12 @@ html, body {
     margin: 1rem 0;
 }
 
+
+
+
+
+
+
 /* Contact Section */
 .contact-section {
     background-color: var(--white);
@@ -661,6 +667,7 @@ html, body {
 
             .form-iframe {
                 height: 1200px;
+                width: auto;
             }
         }
 
