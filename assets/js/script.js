@@ -354,6 +354,90 @@ function revealOnScroll() {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
+        
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other FAQ items
+                    faqQuestions.forEach(otherQuestion => {
+                        const otherFaqItem = otherQuestion.parentElement;
+                        const otherAnswer = otherFaqItem.querySelector('.faq-answer');
+                        
+                        if (otherQuestion !== this) {
+                            otherQuestion.classList.remove('active');
+                            otherAnswer.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    } else {
+                        this.classList.remove('active');
+                        answer.classList.remove('active');
+                    }
+                });
+
+                // Add keyboard accessibility
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Smooth scrolling for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all FAQ items for animation
+            document.querySelectorAll('.faq-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+
+
+
+
+
+
+
+
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
