@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0)';
         });
     });
-
+    
     // Card hover effects
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
